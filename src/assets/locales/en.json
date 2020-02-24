@@ -1,0 +1,21 @@
+{
+  "home": {
+    "welcome": "Welcome {{name}}",
+    "date":"date",
+    "logout":"Logout"
+  },
+  "assessment":{
+    "feedbackTitle":"Your Feedback",
+    "feedbackDescription":"Tell us what you think of this question",
+    "feedbackCancelButton":"Cancel",
+    "feedbackSendButton":"Send"
+  },
+  "overview":{
+    "headerTitle":"Wellness",
+    "experts":"Experts",
+    "goals":"Goals",
+    "checks":"Checks",
+    "vitals":"Vitals",
+    "wellnessoverview":"Wellness Overview"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "_from": "react-native-floating-action@^1.14.2",
+  "_id": "react-native-floating-action@1.14.2",
+  "_inBundle": false,
+  "_integrity": "sha512-KYBbiUWBoJvAShLoCvJZ+CRCQR1IkPEKteOsXLoBUbmP6NoM8PbtpydMq91OdOqPHrltVxL2dpD/Ge6Ybm8G0w==",
+  "_location": "/react-native-floating-action",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "react-native-floating-action@^1.14.2",
+    "name": "react-native-floating-action",
+    "escapedName": "react-native-floating-action",
+    "rawSpec": "^1.14.2",
+    "saveSpec": null,
+    "fetchSpec": "^1.14.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-floating-action/-/react-native-floating-action-1.14.2.tgz",
+  "_shasum": "8f7ae39c573d8a82609d696c2d0e1dd3f0247591",
+  "_spec": "react-native-floating-action@^1.14.2",
+  "_where": "/home/user/Downloads/Work/ZULA/ZULApp",
+  "author": {
+    "name": "Gonzalo Santome"
+  },
+  "bugs": {
+    "url": "https://github.com/santomegonzalo/react-native-floating-action/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Simple (FAB) floating action component for react-native",
+  "devDependencies": {
+    "babel-eslint": "8.2.2",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-loader": "2.0.0",
+    "eslint-plugin-babel": "4.1.2",
+    "eslint-plugin-import": "2.9.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.7.0"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "homepage": "https://github.com/santomegonzalo/react-native-floating-action#readme",
+  "keywords": [
+    "react-native",
+    "action-button",
+    "floating-action",
+    "material-design",
+    "float-action"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-native-floating-action",
+  "peerDependencies": {
+    "prop-types": ">=15.5.10",
+    "react-native": ">=0.45"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santomegonzalo/react-native-floating-action.git"
+  },
+  "scripts": {
+    "run:example": "cd example/ReactNativeFloatingAction-Expo && yarn install && exp start"
+  },
+  "version": "1.14.2"
+}
