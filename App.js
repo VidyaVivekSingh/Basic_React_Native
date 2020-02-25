@@ -25,7 +25,6 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import LoginForm from './src/screens/login/LoginForm';
-import ZulEmptyData from './src/screens/ZulEmptyData/ZulEmptyData';
 
 const App: () => React$Node = () => {
   return (
