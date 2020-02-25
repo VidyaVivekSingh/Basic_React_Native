@@ -82,6 +82,28 @@ project.ext.react = [
 
 apply from: "../../node_modules/react-native/react.gradle"
 
+project.ext.vectoricons = [
+    iconFontNames: [
+    'SimpleLineIcons.ttf',
+    'Ionicons.ttf',
+    'FontAwesome.ttf',
+    'FontAwesome5_Regular.ttf',
+    'FontAwesome5_Brands.ttf',
+    'FontAwesome5_Solid.ttf',
+    'FontAwesome5.ttf',
+    'MaterialCommunityIcons.ttf',
+    'Feather.ttf',
+    'Entypo.ttf',
+    'MaterialIcons.ttf',
+    'AntDesign.ttf',
+    'Octicons.ttf',
+    'EvilIcons.ttf',
+    'cholesterol.ttf',
+    'Foundation.ttf'
+    ] // Name of the font files you want to copy
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -133,6 +155,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
     }
     splits {
         abi {
@@ -160,6 +184,8 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            // signingConfig signingConfigs.release
+            multiDexEnabled true
         }
     }
     // applicationVariants are e.g. debug, release
@@ -183,6 +209,10 @@ dependencies {
     implementation "com.facebook.react:react-native:+"// From node_modules
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+    implementation 'com.facebook.fresco:animated-base-support:1.3.0'
+    implementation 'com.facebook.fresco:fresco:2.0.0'
+    implementation 'com.facebook.fresco:animated-gif:2.0.0'
+    compile project(':react-native-vector-icons')
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

@@ -5,10 +5,14 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import countReducer from '../store/reducers/count-reducer';
+import appReducer from '../store/reducers/app-reducer';
 
 // const middleware = applyMiddleware(logger, thunk, promise());
 
-const rootReducer = combineReducers({counter: countReducer});
+const rootReducer = combineReducers({
+  counter: countReducer,
+  app: appReducer,
+});
 
 let composeEnhancers = compose;
 if (__DEV__) {

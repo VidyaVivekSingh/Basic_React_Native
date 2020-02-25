@@ -1,1 +1,2 @@
 export const COUNTER_CHANGE = 'COUNTER_CHANGE';
+export const IS_TOUCH_ID_ENABLED = 'IS_TOUCH_ID_ENABLED';
