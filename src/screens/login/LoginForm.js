@@ -1,10 +1,42 @@
 import React, {PureComponent} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Button, Text} from 'react-native';
+import {connect} from 'react-redux';
+import {changeCount} from '../../store/actions/count-action';
 import {regularButtonFont} from '../../store/styles/fonts/FontMaker';
+import {bindActionCreators} from 'redux';
+import countReducer from '../../store/reducers/count-reducer';
 
+const mapStateToProps = state => ({
+  count: state.counter.count,
+});
+
+// const ActionCreators = Object.assign({}, changeCount);
+const mapDispatchToProps = dispatch => ({
+  // updateName: name => dispatch(updateUsername(name)),
+  // actions: bindActionCreators(ActionCreators, dispatch),
+  updateCounter: count => dispatch(changeCount(count)),
+});
 class LoginForm extends PureComponent {
+  decrementCount() {
+    let {count, updateCounter} = this.props;
+    count--;
+    updateCounter(count);
+  }
+  incrementCount() {
+    let {count, updateCounter} = this.props;
+    count++;
+    updateCounter(count);
+  }
+
   form = () => {
-    return <View style={styles.container}></View>;
+    const {count} = this.props;
+    return (
+      <View style={styles.container}>
+        <Button title="increment" onPress={() => this.incrementCount()} />
+        <Text>{count}</Text>
+        <Button title="decrement" onPress={() => this.decrementCount()} />
+      </View>
+    );
   };
 
   render() {
@@ -33,4 +65,4 @@ const styles = StyleSheet.create({
     marginLeft: 60,
   },
 });
-export default LoginForm;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
