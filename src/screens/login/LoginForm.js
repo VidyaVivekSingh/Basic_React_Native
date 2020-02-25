@@ -1,10 +1,17 @@
 import React, {PureComponent} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {regularButtonFont} from '../../store/styles/fonts/FontMaker';
 
 class LoginForm extends PureComponent {
   form = () => {
-    return <View style={styles.container}></View>;
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Home')}>
+          <Text>This is login Page press to go to Home page</Text>
+        </TouchableOpacity>
+      </View>
+    );
   };
 
   render() {
