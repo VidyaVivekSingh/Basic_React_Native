@@ -17,6 +17,7 @@
     "appcenter": "3.0.0",
     "appcenter-analytics": "3.0.0",
     "appcenter-crashes": "3.0.0",
+    "appcenter-push": "3.0.0",
     "appium": "^1.16.0",
     "moment": "^2.24.0",
     "react": "16.9.0",

@@ -9,7 +9,6 @@ import {
   Dimensions,
   PickerIOS,
 } from 'react-native';
-// import {Toast} from 'native-base';
 import {connect} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon1 from 'react-native-vector-icons/FontAwesome';
@@ -23,74 +22,17 @@ import Dialog from 'react-native-dialog';
 import NetInfo from '@react-native-community/netinfo';
 import {SCLAlert, SCLAlertButton} from 'react-native-scl-alert';
 import {Avatar} from '../../components/common/ui/react-native-elements';
-// import {BASE_URL, headers} from '../../api/config/Config';
-// import updateAssessmentsList from '../../store/actions/assessmentList';
-// import updateAssessments from '../../components/utility/assessment/getAssessmentList';
-// import CalculateBmi from '../../components/utility/bmi/Bmi';
-// import {
-//   updateUsername,
-//   updateDob,
-//   updateGender,
-//   updateWeight,
-//   updateHeight,
-//   resetState,
-//   updateBmi,
-//   updateFetchedUrl,
-//   updateUserSocialImage,
-//   updateUserImageDetails,
-//   updateLeaderBoardData,
-// } from '../../store/actions/index';
-// import {
-//   setAssessmentType,
-//   updateQuestions,
-//   updateCurrentQuestion,
-//   updateCurrentAnswerId,
-// } from '../../store/actions/assessment';
 import BottomZulTabs from '../../components/common/ui/navigation/BottomZulTabs';
-// import themeCode from '../../components/utility/assessment/themeCodes';
 import uploadImageHandler from '../../components/common/utility/userImage/GetUserImage';
-// import GetAssessmentListService from '../../api/assessment/GetAssessmentListService';
+
 import {
   fontMaker,
   regularButtonFont,
   defaultModalFont,
 } from '../../components/utility/fonts/FontMaker';
 
-const mapStateToProps = state => ({
-  //   uName: state.User.name,
-  //   currentAssessment: state.Assessment.currentAssessment,
-  //   uSocialImage: state.User.socialImage,
-  //   uHeight: state.User.height,
-  //   uWeight: state.User.weight,
-  //   uBmi: state.User.bmi,
-  //   uDob: state.User.dob,
-  //   uGender: state.User.gender,
-  //   fetchedUrl: state.User.fetchedURL,
-  //   imageDetails: {
-  //     secure_url: state.User.imageDetails.secure_url,
-  //     public_id: state.User.imageDetails.public_id,
-  //     created_at: state.User.imageDetails.created_at,
-  //   },
-  //   wellAssessment: state.Assessment.wellnessAssessment,
-});
-const mapDispatchToProps = dispatch => ({
-  //   updatedUserName: name => dispatch(updateUsername(name)),
-  //   updatedWeight: weight => dispatch(updateWeight(weight)),
-  //   updatedHeight: height => dispatch(updateHeight(height)),
-  //   updatedGender: gender => dispatch(updateGender(gender)),
-  //   updatedBmi: bmi => dispatch(updateBmi(bmi)),
-  //   updatedDob: dob => dispatch(updateDob(dob)),
-  //   updatedFetchedUrl: url => dispatch(updateFetchedUrl(url)),
-  //   updatedUserSocialImage: uri => dispatch(updateUserSocialImage(uri)),
-  //   ResetState: () => dispatch(resetState()),
-  //   updatedUserImageDetails: imageDetails => updateUserImageDetails(imageDetails),
-  //   SetAssessmentType: data => dispatch(setAssessmentType(data)),
-  //   getAllQuestion: data => dispatch(updateQuestions(data)),
-  //   getCurrentQuestion: data => dispatch(updateCurrentQuestion(data)),
-  //   updatedCurrentAnswerId: data => dispatch(updateCurrentAnswerId(data)),
-  //   updatedAssessmentsList: data => dispatch(updateAssessmentsList(data)),
-  //   updatedLeaderBoardData: data => dispatch(updateLeaderBoardData(data)),
-});
+const mapStateToProps = state => ({});
+const mapDispatchToProps = dispatch => ({});
 const width = Dimensions.get('window').width;
 // const PickerItem = Picker.Item;
 const PickerItemIOS = PickerIOS.Item;
@@ -137,31 +79,6 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     const {navigation} = this.props;
-    // fetch(`${BASE_URL}/api/user/id`, {
-    //   method: 'POST',
-    //   headers,
-    //   body: JSON.stringify({name: uName}),
-    // })
-    //   .then(response => response.json())
-    //   .then(responseJson => {
-    //     updatedHeight(responseJson.height);
-    //     updatedWeight(responseJson.weight);
-    //     updatedGender(responseJson.gender ? responseJson.gender : null);
-    //     updatedBmi(CalculateBmi(responseJson.height, responseJson.weight));
-    //     this.setState({
-    //       selectedHeight: responseJson.height === 0 ? 122 : responseJson.height,
-    //       selectedWeight: responseJson.weight === 0 ? 24 : responseJson.weight,
-    //       userBmi: CalculateBmi(responseJson.height, responseJson.weight),
-    //     });
-    //     updatedDob(responseJson.dob);
-    //     this.setState({genderIndex: this.condition(responseJson)});
-    //   })
-    //   .catch(err => {
-    //     console.log('Network Error', err);
-    //   });
-    // this.updateWellnessAssessment();
-
-    this.leaderBoardData();
     // this._didFocusSubscription = navigation.addListener('didFocus', () => this.userDataCollection());
   }
 
@@ -212,65 +129,29 @@ class UserProfile extends React.Component {
         : uWeight === 0
         ? 24
         : uWeight;
-    await fetch(`${BASE_URL}/api/userData`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        name: uName,
-        height: heightCondition,
-        weight: weightCondition,
-      }),
-    })
-      .then(response => response.json())
-      .then(() => {
-        selectedChoice === 'height'
-          ? updatedHeight(heightList[tempHeight])
-          : null;
-        selectedChoice === 'weight'
-          ? updatedWeight(weightList[tempWeight])
-          : null;
-        this.setState({
-          selectedHeight: selectedHeightCondition,
-          selectedWeight: selectedWeightCondition,
-          height: stateHeightCondition,
-          weight: stateWeightCondition,
-          bmi: CalculateBmi(heightCondition, weightCondition),
-          userBmi: CalculateBmi(heightCondition, weightCondition),
-        });
-      })
-      .then(
-        updatedBmi(
-          CalculateBmi(
-            selectedChoice === 'height' ? heightList[tempHeight] : uHeight,
-            selectedChoice === 'weight' ? weightList[tempWeight] : uWeight,
-          ),
-        ),
-      )
-      .catch(err => {
-        console.log('Network Error', err);
-      });
-    Toast.show({
-      text: 'Data Updated',
-      duration: 2000,
-      type: 'default',
-    });
+
+    // Toast.show({
+    //   text: 'Data Updated',
+    //   duration: 2000,
+    //   type: 'default',
+    // });
     this.toggleChangeDataModal(selectedChoice);
   };
 
   leaderBoardData = () => {
     const {uName, updatedLeaderBoardData} = this.props;
-    fetch(`${BASE_URL}/api/zul/getLeaderBoard`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({userName: uName}),
-    })
-      .then(response => response.json())
-      .then(responseJson => {
-        updatedLeaderBoardData(responseJson);
-      })
-      .catch(err => {
-        console.log('Network Error', err);
-      });
+    // fetch(`${BASE_URL}/api/zul/getLeaderBoard`, {
+    //   method: 'POST',
+    //   headers,
+    //   body: JSON.stringify({userName: uName}),
+    // })
+    //   .then(response => response.json())
+    //   .then(responseJson => {
+    //     updatedLeaderBoardData(responseJson);
+    //   })
+    //   .catch(err => {
+    //     console.log('Network Error', err);
+    //   });
   };
 
   // userDataCollection = () => {
@@ -315,38 +196,38 @@ class UserProfile extends React.Component {
   mapInviteCode = () => {
     const {uName, updatedAssessmentsList} = this.props;
     const {inviteCode} = this.state;
-    fetch(`${BASE_URL}/api/mapInviteCodeToUserFromSettings`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        userName: uName,
-        inviteCode: inviteCode.trim(),
-      }),
-    })
-      .then(response => response.json(), this.setState({inviteCode: ''}))
-      .then(responseJson => {
-        if (responseJson.error) {
-          this.setState({spinner2: false});
-          // this.dailogVisible();
-          Toast.show({
-            text: responseJson.error,
-            duration: 2000,
-            type: 'default',
-          });
-        } else {
-          this.setState({spinner2: false});
-          // this.dailogVisible();
-          Toast.show({
-            text: 'Invite Code Added..',
-            duration: 2000,
-            type: 'default',
-          });
-          updateAssessments(uName, updatedAssessmentsList);
-        }
-      })
-      .catch(err => {
-        console.log('Network Error', err);
-      });
+    // fetch(`${BASE_URL}/api/mapInviteCodeToUserFromSettings`, {
+    //   method: 'POST',
+    //   headers,
+    //   body: JSON.stringify({
+    //     userName: uName,
+    //     inviteCode: inviteCode.trim(),
+    //   }),
+    // })
+    //   .then(response => response.json(), this.setState({inviteCode: ''}))
+    //   .then(responseJson => {
+    //     if (responseJson.error) {
+    //       this.setState({spinner2: false});
+    //       // this.dailogVisible();
+    //       Toast.show({
+    //         text: responseJson.error,
+    //         duration: 2000,
+    //         type: 'default',
+    //       });
+    //     } else {
+    //       this.setState({spinner2: false});
+    //       // this.dailogVisible();
+    //       Toast.show({
+    //         text: 'Invite Code Added..',
+    //         duration: 2000,
+    //         type: 'default',
+    //       });
+    //       updateAssessments(uName, updatedAssessmentsList);
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log('Network Error', err);
+    //   });
   };
 
   dailogVisible = () => {
@@ -388,32 +269,32 @@ class UserProfile extends React.Component {
       dobDate: date,
       dobText: moment(date).format('MM-DD-YYYY'),
     });
-    await updatedDob(date);
-    await fetch(`${BASE_URL}/api/user/updateUserDob`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        name: uName,
-        dob: moment(date).format('MM-DD-YYYY'),
-      }),
-    })
-      .then(response => {
-        response.json();
-      })
-      .then(
-        await this.setState({
-          dobDate: date,
-          dobText: moment(date).format('MM-DD-YYYY'),
-        }),
-      )
-      .catch(err => {
-        console.log('Network Error', err);
-      });
-    Toast.show({
-      text: 'Data Updated',
-      duration: 2000,
-      type: 'default',
-    });
+    // await updatedDob(date);
+    // await fetch(`${BASE_URL}/api/user/updateUserDob`, {
+    //   method: 'POST',
+    //   headers,
+    //   body: JSON.stringify({
+    //     name: uName,
+    //     dob: moment(date).format('MM-DD-YYYY'),
+    //   }),
+    // })
+    //   .then(response => {
+    //     response.json();
+    //   })
+    //   .then(
+    //     await this.setState({
+    //       dobDate: date,
+    //       dobText: moment(date).format('MM-DD-YYYY'),
+    //     }),
+    //   )
+    //   .catch(err => {
+    //     console.log('Network Error', err);
+    //   });
+    // Toast.show({
+    //   text: 'Data Updated',
+    //   duration: 2000,
+    //   type: 'default',
+    // });
   };
 
   onPickerSelect(index, selectedChoice) {
