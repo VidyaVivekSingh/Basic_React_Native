@@ -75,7 +75,9 @@ class LoginForm extends PureComponent {
   }
 
   loginUser() {
-    console.log('loginUser');
+    const {navigation} = this.props;
+    navigation.navigate('Register');
+    // console.log('loginUser');
   }
 
   form = () => {
@@ -84,15 +86,12 @@ class LoginForm extends PureComponent {
     return (
       <ScrollView>
         <View style={GlobalStyles.container}>
-          <View style={[GlobalStyles.flexOne, GlobalStyles.flexRow]}>
-            <Image
-              source={require('../../assets/Zula/zula-anim.gif')}
-              style={styles.imgStyle}
-            />
-            <Image
-              source={require('../../assets/Zula/zula-anim.gif')}
-              style={styles.imgStyle}
-            />
+          <View
+            style={[
+              GlobalStyles.flexOne,
+              GlobalStyles.flexRow,
+              GlobalStyles.centreAligned,
+            ]}>
             <Image
               source={require('../../assets/Zula/zula-anim.gif')}
               style={styles.imgStyle}
@@ -104,7 +103,7 @@ class LoginForm extends PureComponent {
               labelStyle={styles.labelStyle}
               inputStyle={styles.inputStyle}
               style={styles.customStyle}
-              onChangeText={text => this.setState({uName: text})}
+              onChangeText={text => this.setState({userName: text})}
               accessible
               accessibilityLabel="Username"
               accessibilityHint="Provide Username">
@@ -125,7 +124,9 @@ class LoginForm extends PureComponent {
               style={styles.customStyle}
               maxLength={4}
               onChangeText={async text => {
-                await this.setState({uPasscode: text.replace(/[^0-9]/g, '')});
+                await this.setState({
+                  userPassCode: text.replace(/[^0-9]/g, ''),
+                });
               }}
               accessible
               accessibilityLabel="Passcode"
@@ -141,7 +142,7 @@ class LoginForm extends PureComponent {
               <View style={styles.buttonContainer}>
                 <TouchableOpacity
                   style={styles.logInBtnwithTouchId}
-                  onPress={this.loginUser}>
+                  onPress={() => this.loginUser()}>
                   <Text style={styles.whiteText}>{'Login'.toUpperCase()}</Text>
                 </TouchableOpacity>
               </View>
@@ -230,10 +231,8 @@ class LoginForm extends PureComponent {
 }
 const styles = StyleSheet.create({
   imgStyle: {
-    alignSelf: 'center',
-    height: 120,
-    width: 120,
-    justifyContent: 'space-evenly',
+    height: 150,
+    width: 150,
   },
   labelStyle: {fontFamily: 'System', color: '#000'},
 

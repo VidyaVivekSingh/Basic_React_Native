@@ -1,4 +1,22 @@
 PODS:
+  - appcenter-analytics (3.0.0):
+    - AppCenter/Analytics
+    - AppCenterReactNativeShared
+    - React
+  - appcenter-core (3.0.0):
+    - AppCenterReactNativeShared
+    - React
+  - appcenter-crashes (3.0.0):
+    - AppCenter/Crashes
+    - AppCenterReactNativeShared
+    - React
+  - AppCenter/Analytics (3.0.0):
+    - AppCenter/Core
+  - AppCenter/Core (3.0.0)
+  - AppCenter/Crashes (3.0.0):
+    - AppCenter/Core
+  - AppCenterReactNativeShared (3.0.0):
+    - AppCenter/Core (= 3.0.0)
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.61.5)
@@ -225,6 +243,8 @@ PODS:
     - React
   - RNCMaskedView (0.1.6):
     - React
+  - RNDateTimePicker (2.2.2):
+    - React
   - RNDeviceInfo (5.5.3):
     - React
   - RNGestureHandler (1.6.0):
@@ -240,6 +260,9 @@ PODS:
   - Yoga (1.14.0)
 
 DEPENDENCIES:
+  - appcenter-analytics (from `../node_modules/appcenter-analytics/ios`)
+  - appcenter-core (from `../node_modules/appcenter/ios`)
+  - appcenter-crashes (from `../node_modules/appcenter-crashes/ios`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
@@ -271,6 +294,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeExceptionHandler (from `../node_modules/react-native-exception-handler`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -281,9 +305,17 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppCenter
+    - AppCenterReactNativeShared
     - boost-for-react-native
 
 EXTERNAL SOURCES:
+  appcenter-analytics:
+    :path: "../node_modules/appcenter-analytics/ios"
+  appcenter-core:
+    :path: "../node_modules/appcenter/ios"
+  appcenter-crashes:
+    :path: "../node_modules/appcenter-crashes/ios"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -340,6 +372,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-exception-handler"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
@@ -356,6 +390,11 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AppCenter: 7a0bbe928d07467ac8b2d7f6f2a675872a6471d8
+  appcenter-analytics: 2eba9da53aa3efbfa625fc1ab9dd9ccebba18b24
+  appcenter-core: 98c617ae028c90020e404f020c37d7cb189adf4c
+  appcenter-crashes: add23a3c3cf0403e1f54c39d85e9b3c5db7279e7
+  AppCenterReactNativeShared: 48a905fe90071696748e3def60199546167cdb86
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
@@ -385,6 +424,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   ReactNativeExceptionHandler: 8025d98049c25f186835a3af732dd7c9974d6dce
   RNCMaskedView: e5b99bc191945f157adeede68da9d424462de177
+  RNDateTimePicker: 501ab152e78882c183607e05074c37ce19ace5bf
   RNDeviceInfo: 67607dfe9cfbed105838144c40187a8392aa404d
   RNGestureHandler: dde546180bf24af0b5f737c8ad04b6f3fa51609a
   RNReanimated: 031fe8d9ea93c2bd689a40f05320ef9d96f74d7f
@@ -393,6 +433,6 @@ SPEC CHECKSUMS:
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 3084208b91273c2569e402efe3d9283256c2a67a
+PODFILE CHECKSUM: 2ffa1aa92df4dbe970662a44567ce7547d7fdbc5
 
 COCOAPODS: 1.8.4

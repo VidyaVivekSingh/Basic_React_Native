@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import TouchID from 'react-native-touch-id';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import IonIcon from 'react-native-vector-icons/Ionicons';
+import MatComIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class TouchComponent extends PureComponent {
   componentDidMount() {
@@ -75,7 +75,7 @@ class TouchComponent extends PureComponent {
     return (
       <View style={styles.touchIdStyle}>
         <TouchableOpacity onPress={this._pressHandler}>
-          <IonIcon name="finger-print-outline" size={50} color="#41ab3e" />
+          <MatComIcon name="fingerprint" size={50} color="#41ab3e" />
         </TouchableOpacity>
       </View>
     );

@@ -40,9 +40,7 @@ const App: () => React$Node = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )} */}
-          <View style={styles.body}>
-            <LoginForm />
-          </View>
+          <View style={styles.body} />
         </ScrollView>
       </SafeAreaView>
     </>
