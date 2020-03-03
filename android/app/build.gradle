@@ -155,8 +155,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
-        vectorDrawables.useSupportLibrary = true
+        // multiDexEnabled true
+        // vectorDrawables.useSupportLibrary = true
     }
     splits {
         abi {
@@ -185,7 +185,7 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             // signingConfig signingConfigs.release
-            multiDexEnabled true
+            // multiDexEnabled true
         }
     }
     // applicationVariants are e.g. debug, release
@@ -205,6 +205,7 @@ android {
 }
 
 dependencies {
+    implementation project(':@react-native-community_datetimepicker')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"// From node_modules
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
@@ -212,6 +213,9 @@ dependencies {
     implementation 'com.facebook.fresco:animated-base-support:1.3.0'
     implementation 'com.facebook.fresco:fresco:2.0.0'
     implementation 'com.facebook.fresco:animated-gif:2.0.0'
+    implementation project(':appcenter-crashes')
+    implementation project(':appcenter-analytics')
+    implementation project(':appcenter')
     compile project(':react-native-vector-icons')
 
     if (enableHermes) {

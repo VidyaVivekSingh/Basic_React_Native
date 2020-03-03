@@ -10,9 +10,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^2.2.2",
     "@react-native-community/masked-view": "^0.1.6",
     "@react-navigation/native": "^5.0.7",
     "@react-navigation/stack": "^5.0.9",
+    "appcenter": "3.0.0",
+    "appcenter-analytics": "3.0.0",
+    "appcenter-crashes": "3.0.0",
+    "appium": "^1.16.0",
     "moment": "^2.24.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
@@ -45,6 +50,12 @@
     "react-test-renderer": "16.12.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/node_modules/appcenter/test/AppCenterMock.js",
+      "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js",
+      "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js",
+      "<rootDir>/node_modules/appcenter-push/test/AppCenterPushMock.js"
+    ]
   }
 }
